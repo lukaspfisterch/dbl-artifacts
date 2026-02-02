@@ -1,0 +1,49 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "dbl-artifacts"
+version = "0.1.0"
+description = "Deterministic artifact import and extraction"
+readme = { file = "README.md", content-type = "text/markdown" }
+requires-python = ">=3.11"
+license = "MIT"
+authors = [
+  { name = "Lukas Pfister", email = "228201683+lukaspfisterch@users.noreply.github.com" }
+]
+keywords = ["dbl", "artifacts", "extraction", "deterministic"]
+classifiers = [
+  "Development Status :: 3 - Alpha",
+  "Intended Audience :: Developers",
+  "License :: OSI Approved :: MIT License",
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: 3.12",
+  "Programming Language :: Python :: 3 :: Only"
+]
+
+dependencies = [
+  "pymupdf>=1.24,<2",
+  "python-docx>=1.1,<2",
+  "lxml>=5.2,<6",
+  "readability-lxml>=0.8,<1",
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=8,<9"]
+
+[project.license-files]
+paths = ["LICENSE"]
+
+[tool.setuptools]
+package-dir = { "" = "src" }
+
+[tool.setuptools.packages.find]
+where = ["src"]
+include = ["dbl_artifacts*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src"]
+addopts = ["-q"]

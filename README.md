@@ -1,0 +1,29 @@
+# dbl-artifacts
+
+Deterministic, domain-agnostic artifact import and extraction package.
+
+## Public API
+
+- `import_artifact(source, filename, media_type=None, storage=None) -> ArtifactRecord`
+- `extract_text(artifact, storage=None, registry=None) -> DerivationResult`
+
+## Supported formats
+
+- Text: `.txt`, `.md`
+- PDF: `application/pdf`
+- DOCX: `application/vnd.openxmlformats-officedocument.wordprocessingml.document`
+- HTML: `.html`, `.htm`
+- Email: `.eml` (RFC 5322)
+
+Unsupported formats fail with explicit reason codes.
+
+## Extraction outputs
+
+- For PDF/DOCX/HTML/TXT/MD/EML: `<original>.extracted.txt` with `text/plain`
+- For EML attachments: one artifact per attachment (metadata includes parent + filename)
+
+## Determinism
+
+- Content is stored using a content-addressed layout (sha256-based).
+- Artifact IDs are derived from content hashes.
+- No timestamps are included in digests.
