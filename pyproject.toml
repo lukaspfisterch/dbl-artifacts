@@ -33,8 +33,7 @@ dependencies = [
 [project.optional-dependencies]
 dev = ["pytest>=8,<9"]
 
-[project.license-files]
-paths = ["LICENSE"]
+license-files = ["LICENSE"]
 
 [tool.setuptools]
 package-dir = { "" = "src" }
