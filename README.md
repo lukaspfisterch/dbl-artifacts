@@ -29,3 +29,13 @@ Unsupported formats fail with explicit reason codes.
 - Content is stored using a content-addressed layout (sha256-based).
 - Artifact IDs are derived from content hashes.
 - No timestamps are included in digests.
+
+
+## Potential gaps / next steps
+
+- Tighten type detection (e.g., avoid treating any ZIP as DOCX without additional checks).
+- Add a storage abstraction to support non-local backends and stable URI handling.
+- Define normalization rules for extracted text (line endings, whitespace, metadata).
+- Expand encoding detection beyond UTF-8/Latin-1 fallbacks.
+- Add provenance/lineage metadata and a manifest export format.
+- Provide a CLI or batch ingestion workflow.
