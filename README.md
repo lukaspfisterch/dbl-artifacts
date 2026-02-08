@@ -2,6 +2,8 @@
 
 Deterministic, domain-agnostic artifact import and extraction package.
 
+It's simply a package which reduces my headache about handling various file formats and their metadata. It provides a consistent API for importing artifacts, extracting text, and storing results in a content-addressed manner.
+
 ## Public API
 
 - `import_artifact(source, filename, media_type=None, storage=None) -> ArtifactRecord`
